@@ -209,7 +209,7 @@
 
     .projects-row {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 20px;
       align-items: stretch;
     }
@@ -443,6 +443,123 @@
       border: 1px solid var(--border);
     }
 
+
+    /* ── Overview ── */
+    #overview { background: var(--surface); }
+
+    .overview-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 56px;
+      align-items: start;
+    }
+
+    .overview-text p {
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--text);
+      line-height: 1.85;
+      margin-bottom: 18px;
+    }
+
+    .overview-text p:last-child { margin-bottom: 0; }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .stat {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px 22px;
+    }
+
+    .stat-num {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 34px;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .stat-label {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .project-facts {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .project-facts li {
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.6;
+      padding-left: 16px;
+      position: relative;
+    }
+
+    .project-facts li::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 9px;
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--accent2);
+    }
+
+    .project-facts strong { font-weight: 600; color: var(--text); }
+
+    .project-chips { margin-top: auto; }
+
+    .project-note {
+      margin-top: 20px;
+      font-size: 12px;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    /* ── Skills ── */
+    #skills { background: var(--bg); padding-top: 0; }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .skill-group {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+    }
+
+    .skill-group h3 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 17px;
+      margin-bottom: 6px;
+    }
+
+    .skill-group p {
+      font-size: 12px;
+      font-weight: 300;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    .skill-group .project-chips { margin-top: 0; }
+
     /* ── Contact ── */
     #contact { background: var(--dark); }
 
@@ -517,7 +634,8 @@
 
     /* ── Responsive ── */
     @media (max-width: 860px) {
-      .projects-row { grid-template-columns: 1fr; }
+      .projects-row, .skills-grid, .overview-grid { grid-template-columns: 1fr; }
+      .overview-grid { gap: 36px; }
     }
     @media (max-width: 600px) {
       #hero { padding: 80px 0 72px; }
@@ -532,7 +650,9 @@
     <div class="container">
       <span class="nav-logo">Lilee</span>
       <ul class="nav-links">
+        <li><a href="#overview">Overview</a></li>
         <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </div>
@@ -544,11 +664,45 @@
       <h1 class="hero-name">Vipatra <span class="hero-preferred">(Lilee)</span> Cherdchuwongsanti</h1>
       <p class="hero-subtitle">
         Business Analyst · Data-Driven Decision Maker<br/>
-        Turning complex data into clear, actionable insights.
+        A portfolio of projects across music analytics, credit risk, supply-chain operations, and retail strategy.
       </p>
       <div class="hero-actions">
         <a href="#contact" class="btn-primary">Get in touch →</a>
-        <a href="#projects" class="btn-ghost">View projects ↓</a>
+        <a href="#overview" class="btn-ghost">Project overview ↓</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Overview -->
+  <section id="overview">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <p class="section-eyebrow">Overview</p>
+          <h2 class="section-title">Portfolio at a Glance</h2>
+        </div>
+      </div>
+      <div class="overview-grid">
+        <div class="overview-text">
+          <p>
+            I'm a business analyst who turns raw data into decisions. My projects span
+            four different domains, but they follow the same pattern: start with a business
+            question, build a clear analytical pipeline in Python, and translate the result
+            into something a decision-maker can act on.
+          </p>
+          <p>
+            <strong>Visualization &amp; storytelling</strong> in the Spotify analysis,
+            <strong>quantitative modeling</strong> in credit risk,
+            <strong>operations &amp; profitability analysis</strong> in Trojan Toys, and
+            <strong>strategy</strong> in retail loyalty consulting.
+          </p>
+        </div>
+        <div class="stats">
+          <div class="stat"><div class="stat-num">4</div><div class="stat-label">Projects across analytics, finance, operations and consulting</div></div>
+          <div class="stat"><div class="stat-num">4</div><div class="stat-label">Domains: music, credit, supply chain, retail</div></div>
+          <div class="stat"><div class="stat-num">3</div><div class="stat-label">Years of financial data behind the credit model (2015–2017)</div></div>
+          <div class="stat"><div class="stat-num">5</div><div class="stat-label">Risk pillars scored per company in the rating model</div></div>
+        </div>
       </div>
     </div>
   </section>
@@ -559,7 +713,7 @@
       <div class="section-header">
         <div>
           <p class="section-eyebrow">Work</p>
-          <h2 class="section-title">Featured Projects</h2>
+          <h2 class="section-title">Projects</h2>
         </div>
       </div>
 
@@ -574,11 +728,19 @@
             <span class="cover-tag">Music · Analytics</span>
           </div>
           <div class="project-body">
-            <p class="project-tag">Spotify · Data Analysis</p>
+            <p class="project-tag">Data Visualization · EDA</p>
             <h3 class="project-title">Spotify Streaming Analysis</h3>
             <p class="project-desc">
-              This project analyzes Spotify track data to uncover the key factors that influence song popularity. By exploring audio features such as energy, danceability, tempo, and genre, the analysis aims to identify patterns that contribute to streaming success and provide data-driven insights relevant to the music industry.
+              What makes a song popular? I explored Spotify track data to find which audio features and genres are linked to streaming success.
             </p>
+            <ul class="project-facts">
+              <li><strong>Approach:</strong> compared audio profiles of high- vs. low-popularity tracks, popularity by genre and year, and feature correlations.</li>
+              <li><strong>Finding:</strong> higher-energy, more danceable tracks tend to be more popular, and pop and hip-hop dominate.</li>
+              <li><strong>Impact:</strong> informs playlist curation, marketing, and artist development.</li>
+            </ul>
+            <div class="project-chips">
+              <span class="chip">Python</span><span class="chip">pandas</span><span class="chip">matplotlib</span><span class="chip">seaborn</span>
+            </div>
             <a href="charts.html" class="project-cta">View charts →</a>
           </div>
         </div>
@@ -592,15 +754,46 @@
           </div>
           <div class="project-body">
             <p class="project-tag">Finance · Risk Modeling</p>
-            <h3 class="project-title">Credit Risk Modeling & Simulation</h3>
+            <h3 class="project-title">Credit Risk Modeling &amp; Simulation</h3>
             <p class="project-desc">
-              This project builds a credit rating model inspired by how Moody's and S&amp;P assess company risk. Using 3 years of financial statement data (2015–2017), it scores companies across 5 key metrics and assigns ratings from A to CCC — then uses Monte Carlo simulation to estimate how likely each rating group is to default.
+              A credit rating model inspired by Moody's and S&amp;P, built to estimate how likely companies in each rating group are to default.
             </p>
+            <ul class="project-facts">
+              <li><strong>Approach:</strong> scored firms on ROA, leverage, liquidity, coverage and efficiency using 2015–2017 statements, then combined them with weights.</li>
+              <li><strong>Output:</strong> ratings from A to CCC, followed by Monte Carlo simulation of default probability per rating group.</li>
+              <li><strong>Impact:</strong> the kind of framework lenders use to decide who to lend to and at what price.</li>
+            </ul>
+            <div class="project-chips">
+              <span class="chip">Python</span><span class="chip">Monte Carlo</span><span class="chip">Z-scores</span><span class="chip">Financial ratios</span>
+            </div>
             <a href="credit-risk.html" class="project-cta">View full analysis →</a>
           </div>
         </div>
 
-        <!-- 3. Retail -->
+        <!-- 3. Trojan Toys -->
+        <div class="project-card">
+          <div class="project-cover project-cover--pattern">
+            <span class="cover-monogram">TT</span>
+            <span class="cover-tag">Operations · Profitability</span>
+          </div>
+          <div class="project-body">
+            <p class="project-tag">Supply Chain · Data Analysis</p>
+            <h3 class="project-title">Trojan Toys Shipment &amp; Profitability Analysis</h3>
+            <p class="project-desc">
+              An analysis of a global toy manufacturer's shipment records, tracing how factories, markets and regions drive volume and revenue.
+            </p>
+            <ul class="project-facts">
+              <li><strong>Approach:</strong> aggregated shipments by factory, market, date and weekday, then joined manufacturing cost, transport cost and market markup tables.</li>
+              <li><strong>Output:</strong> revenue by factory–market pair, regional revenue (e.g. Europe), and each factory's lowest-revenue markets.</li>
+              <li><strong>Impact:</strong> shows which factory–market routes carry the business and which are underperforming.</li>
+            </ul>
+            <div class="project-chips">
+              <span class="chip">Python</span><span class="chip">pandas</span><span class="chip">Excel data</span><span class="chip">groupby / merge</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Retail -->
         <div class="project-card">
           <div class="project-cover project-cover--pattern">
             <span class="cover-monogram">RL</span>
@@ -608,16 +801,49 @@
           </div>
           <div class="project-body">
             <p class="project-tag">Consulting · Retail</p>
-            <h3 class="project-title">Retail Loyalty & Customer Engagement</h3>
+            <h3 class="project-title">Retail Loyalty &amp; Customer Engagement</h3>
             <p class="project-desc">
-              Led a consulting engagement to redesign a retail loyalty program, identifying
-              high-value customer segments and recommending targeted engagement strategies
-              that projected a 20% uplift in repeat purchase rate.
+              A consulting engagement to redesign a retail loyalty program and grow repeat purchases.
             </p>
-            <a href="#" class="project-cta">View case study →</a>
+            <ul class="project-facts">
+              <li><strong>Approach:</strong> identified high-value customer segments and matched them with targeted engagement strategies.</li>
+              <li><strong>Impact:</strong> projected a 20% uplift in repeat purchase rate.</li>
+            </ul>
+            <div class="project-chips">
+              <span class="chip">Customer segmentation</span><span class="chip">Strategy</span><span class="chip">Consulting</span>
+            </div>
           </div>
         </div>
 
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <p class="section-eyebrow">Toolkit</p>
+          <h2 class="section-title">What Runs Through the Work</h2>
+        </div>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-group">
+          <h3>Analysis</h3>
+          <p>Cleaning, aggregating and joining data to answer a business question.</p>
+          <div class="project-chips"><span class="chip">Python</span><span class="chip">pandas</span><span class="chip">Jupyter</span><span class="chip">Excel</span></div>
+        </div>
+        <div class="skill-group">
+          <h3>Modeling</h3>
+          <p>Turning financial and operational data into scores, ratings and simulations.</p>
+          <div class="project-chips"><span class="chip">Z-score standardization</span><span class="chip">Weighted scoring</span><span class="chip">Monte Carlo</span></div>
+        </div>
+        <div class="skill-group">
+          <h3>Communication</h3>
+          <p>Choosing visual encodings that make a finding obvious to a non-technical audience.</p>
+          <div class="project-chips"><span class="chip">matplotlib</span><span class="chip">seaborn</span><span class="chip">Visual encoding</span></div>
+        </div>
       </div>
     </div>
   </section>
